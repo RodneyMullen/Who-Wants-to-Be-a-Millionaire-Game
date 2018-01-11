@@ -1,0 +1,195 @@
+#
+# An unexpected error has been detected by HotSpot Virtual Machine:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x6d0922d6, pid=440, tid=2240
+#
+# Java VM: Java HotSpot(TM) Client VM (1.5.0_12-b04 mixed mode, sharing)
+# Problematic frame:
+# C  [awt.dll+0x222d6]
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00ac66a8):  JavaThread "AWT-EventQueue-0" [_thread_in_native, id=2240]
+
+siginfo: ExceptionCode=0xc0000005, writing address 0x01eb2800
+
+Registers:
+EAX=0x22a95aa4, EBX=0x000001c4, ECX=0x00000071, EDX=0x01eb2800
+ESP=0x02fbe958, EBP=0x000001c4, ESI=0x22a95aa4, EDI=0x01eb2800
+EIP=0x6d0922d6, EFLAGS=0x00010206
+
+Top of Stack: (sp=0x02fbe958)
+0x02fbe958:   00000000 00ac6768 6d1922b8 00000000
+0x02fbe968:   6d071a56 000001c4 00000200 00000071
+0x02fbe978:   00000004 02fbea68 02fbe9f0 6d1922b8
+0x02fbe988:   02fbe9e4 00ac66a8 2ab2daf8 02fbeb30
+0x02fbe998:   2b38f238 02ce7ed8 00000000 6d1922b8
+0x02fbe9a8:   00000000 02caf160 00000000 00000000
+0x02fbe9b8:   00000071 00000004 00000000 00000000
+0x02fbe9c8:   00000071 00000004 00000000 00000000 
+
+Instructions: (pc=0x6d0922d6)
+0x6d0922c6:   4c 24 14 8b 4c 24 14 8b f0 8b e9 8b fa c1 e9 02
+0x6d0922d6:   f3 a5 8b cd 03 c3 83 e1 03 f3 a4 8b 74 24 18 8b 
+
+
+Stack: [0x02f80000,0x02fc0000),  sp=0x02fbe958,  free space=250k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [awt.dll+0x222d6]
+
+[error occurred during error reporting, step 120, id 0xc0000005]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  sun.java2d.loops.Blit.Blit(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V+0
+j  sun.awt.windows.Win32BlitLoops$DelegateBlitBgLoop.BlitBg(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/Color;IIIIII)V+170
+j  sun.awt.image.CachingSurfaceManager.copyDefaultToAccelerated()V+133
+j  sun.awt.image.CachingSurfaceManager.validate(Ljava/awt/GraphicsConfiguration;)V+105
+j  sun.awt.image.CachingSurfaceManager.getSourceSurfaceData(Lsun/java2d/SurfaceData;Lsun/java2d/loops/CompositeType;Ljava/awt/Color;Z)Lsun/java2d/SurfaceData;+53
+j  sun.java2d.SurfaceData.getSourceSurfaceData(Ljava/awt/Image;Lsun/java2d/SurfaceData;Lsun/java2d/loops/CompositeType;Ljava/awt/Color;Z)Lsun/java2d/SurfaceData;+13
+j  sun.java2d.pipe.DrawImage.renderImageCopy(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/Color;IIIIII)Z+17
+j  sun.java2d.pipe.DrawImage.copyImage(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;)Z+45
+j  sun.java2d.pipe.DrawImage.copyImage(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z+15
+j  sun.java2d.SunGraphics2D.drawImage(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z+18
+j  sun.awt.image.ImageRepresentation.drawToBufImage(Ljava/awt/Graphics;Lsun/awt/image/ToolkitImage;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z+152
+j  sun.java2d.pipe.DrawImage.copyImage(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z+56
+j  sun.java2d.pipe.ValidatePipe.copyImage(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z+21
+j  sun.java2d.SunGraphics2D.drawImage(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z+18
+j  sun.java2d.SunGraphics2D.drawImage(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z+7
+j  javax.swing.ImageIcon.paintIcon(Ljava/awt/Component;Ljava/awt/Graphics;II)V+16
+j  javax.swing.plaf.basic.BasicLabelUI.paint(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V+223
+j  javax.swing.plaf.ComponentUI.update(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V+32
+j  javax.swing.JComponent.paintComponent(Ljava/awt/Graphics;)V+26
+j  javax.swing.JComponent.paint(Ljava/awt/Graphics;)V+260
+J  javax.swing.JComponent.paintChildren(Ljava/awt/Graphics;)V
+j  javax.swing.JComponent.paint(Ljava/awt/Graphics;)V+292
+j  javax.swing.JLayeredPane.paint(Ljava/awt/Graphics;)V+73
+J  javax.swing.JComponent.paintChildren(Ljava/awt/Graphics;)V
+v  ~RuntimeStub::alignment_frame_return Runtime1 stub
+j  javax.swing.JComponent.paint(Ljava/awt/Graphics;)V+292
+J  javax.swing.JComponent.paintChildren(Ljava/awt/Graphics;)V
+v  ~RuntimeStub::alignment_frame_return Runtime1 stub
+j  javax.swing.JComponent.paint(Ljava/awt/Graphics;)V+292
+J  javax.swing.JComponent.paintChildren(Ljava/awt/Graphics;)V
+j  javax.swing.JComponent.paint(Ljava/awt/Graphics;)V+292
+j  javax.swing.JLayeredPane.paint(Ljava/awt/Graphics;)V+73
+J  javax.swing.JComponent.paintChildren(Ljava/awt/Graphics;)V
+v  ~RuntimeStub::alignment_frame_return Runtime1 stub
+j  javax.swing.JComponent.paintWithOffscreenBuffer(Ljavax/swing/JComponent;Ljava/awt/Graphics;IIIILjava/awt/Image;)V+209
+j  javax.swing.JComponent.paintDoubleBuffered(Ljavax/swing/JComponent;Ljava/awt/Component;Ljava/awt/Graphics;IIII)Z+131
+j  javax.swing.JComponent.paint(Ljava/awt/Graphics;)V+211
+j  java.awt.GraphicsCallback$PaintCallback.run(Ljava/awt/Component;Ljava/awt/Graphics;)V+2
+j  sun.awt.SunGraphicsCallback.runOneComponent(Ljava/awt/Component;Ljava/awt/Rectangle;Ljava/awt/Graphics;Ljava/awt/Shape;I)V+155
+j  sun.awt.SunGraphicsCallback.runComponents([Ljava/awt/Component;Ljava/awt/Graphics;I)V+104
+j  java.awt.Container.paint(Ljava/awt/Graphics;)V+62
+j  sun.awt.RepaintArea.paintComponent(Ljava/awt/Component;Ljava/awt/Graphics;)V+6
+j  sun.awt.RepaintArea.paint(Ljava/lang/Object;Z)V+326
+j  sun.awt.windows.WComponentPeer.handleEvent(Ljava/awt/AWTEvent;)V+63
+j  java.awt.Component.dispatchEventImpl(Ljava/awt/AWTEvent;)V+805
+j  java.awt.Container.dispatchEventImpl(Ljava/awt/AWTEvent;)V+42
+j  java.awt.Window.dispatchEventImpl(Ljava/awt/AWTEvent;)V+19
+j  java.awt.Component.dispatchEvent(Ljava/awt/AWTEvent;)V+2
+j  java.awt.EventQueue.dispatchEvent(Ljava/awt/AWTEvent;)V+46
+j  java.awt.EventDispatchThread.pumpOneEventForHierarchy(ILjava/awt/Component;)Z+233
+j  java.awt.EventDispatchThread.pumpEventsForHierarchy(ILjava/awt/Conditional;Ljava/awt/Component;)V+26
+j  java.awt.EventDispatchThread.pumpEvents(ILjava/awt/Conditional;)V+4
+j  java.awt.EventDispatchThread.pumpEvents(Ljava/awt/Conditional;)V+3
+j  java.awt.EventDispatchThread.run()V+9
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x02c5a4e8 JavaThread "TimerQueue" daemon [_thread_blocked, id=316]
+  0x00ab7e18 JavaThread "Image Fetcher 3" daemon [_thread_blocked, id=1144]
+  0x02c574b0 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=2100]
+  0x00035ba8 JavaThread "DestroyJavaVM" [_thread_blocked, id=3576]
+=>0x00ac66a8 JavaThread "AWT-EventQueue-0" [_thread_in_native, id=2240]
+  0x00ab6dc8 JavaThread "AWT-Windows" daemon [_thread_in_native, id=3136]
+  0x00ab87f0 JavaThread "AWT-Shutdown" [_thread_blocked, id=3220]
+  0x00a71ec0 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=3068]
+  0x00a70aa0 JavaThread "CompilerThread0" daemon [_thread_blocked, id=1344]
+  0x00a6fd88 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=2704]
+  0x0003f1e8 JavaThread "Finalizer" daemon [_thread_blocked, id=4092]
+  0x0003e618 JavaThread "Reference Handler" daemon [_thread_blocked, id=3744]
+
+Other Threads:
+  0x00a427a0 VMThread [id=1720]
+  0x00a73118 WatcherThread [id=1576]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 576K, used 160K [0x22a70000, 0x22b10000, 0x22f50000)
+  eden space 512K,  31% used [0x22a70000, 0x22a98008, 0x22af0000)
+  from space 64K,   0% used [0x22af0000, 0x22af0000, 0x22b00000)
+  to   space 64K,   0% used [0x22b00000, 0x22b00000, 0x22b10000)
+ tenured generation   total 4800K, used 2878K [0x22f50000, 0x23400000, 0x26a70000)
+   the space 4800K,  59% used [0x22f50000, 0x2321fac8, 0x2321fc00, 0x23400000)
+ compacting perm gen  total 8192K, used 676K [0x26a70000, 0x27270000, 0x2aa70000)
+   the space 8192K,   8% used [0x26a70000, 0x26b19248, 0x26b19400, 0x27270000)
+    ro space 8192K,  67% used [0x2aa70000, 0x2afd0588, 0x2afd0600, 0x2b270000)
+    rw space 12288K,  47% used [0x2b270000, 0x2b81a268, 0x2b81a400, 0x2be70000)
+
+Dynamic libraries:
+0x00400000 - 0x0040d000 	C:\Program Files\Java\jdk1.5.0_12\jre\bin\java.exe
+0x7c900000 - 0x7c9b0000 	C:\WINDOWS\system32\ntdll.dll
+0x7c800000 - 0x7c8f5000 	C:\WINDOWS\system32\kernel32.dll
+0x77dd0000 - 0x77e6b000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77e70000 - 0x77f01000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77c10000 - 0x77c68000 	C:\WINDOWS\system32\MSVCRT.dll
+0x6d740000 - 0x6d8dd000 	C:\Program Files\Java\jdk1.5.0_12\jre\bin\client\jvm.dll
+0x7e410000 - 0x7e4a0000 	C:\WINDOWS\system32\USER32.dll
+0x77f10000 - 0x77f57000 	C:\WINDOWS\system32\GDI32.dll
+0x76b40000 - 0x76b6d000 	C:\WINDOWS\system32\WINMM.dll
+0x76390000 - 0x763ad000 	C:\WINDOWS\system32\IMM32.DLL
+0x6d300000 - 0x6d308000 	C:\Program Files\Java\jdk1.5.0_12\jre\bin\hpi.dll
+0x76bf0000 - 0x76bfb000 	C:\WINDOWS\system32\PSAPI.DLL
+0x6d710000 - 0x6d71c000 	C:\Program Files\Java\jdk1.5.0_12\jre\bin\verify.dll
+0x6d380000 - 0x6d39d000 	C:\Program Files\Java\jdk1.5.0_12\jre\bin\java.dll
+0x6d730000 - 0x6d73f000 	C:\Program Files\Java\jdk1.5.0_12\jre\bin\zip.dll
+0x6d070000 - 0x6d1da000 	C:\Program Files\Java\jdk1.5.0_12\jre\bin\awt.dll
+0x73000000 - 0x73026000 	C:\WINDOWS\system32\WINSPOOL.DRV
+0x774e0000 - 0x7761d000 	C:\WINDOWS\system32\ole32.dll
+0x5ad70000 - 0x5ada8000 	C:\WINDOWS\system32\uxtheme.dll
+0x73760000 - 0x737a9000 	C:\WINDOWS\system32\ddraw.dll
+0x73bc0000 - 0x73bc6000 	C:\WINDOWS\system32\DCIMAN32.dll
+0x74720000 - 0x7476b000 	C:\WINDOWS\system32\MSCTF.dll
+0x77b40000 - 0x77b62000 	C:\WINDOWS\system32\apphelp.dll
+0x755c0000 - 0x755ee000 	C:\WINDOWS\system32\msctfime.ime
+0x7c9c0000 - 0x7d1d5000 	C:\WINDOWS\system32\shell32.dll
+0x77f60000 - 0x77fd6000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x773d0000 - 0x774d3000 	C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2982_x-ww_ac3f9c03\comctl32.dll
+0x5d090000 - 0x5d12a000 	C:\WINDOWS\system32\comctl32.dll
+0x6d2b0000 - 0x6d300000 	C:\Program Files\Java\jdk1.5.0_12\jre\bin\fontmanager.dll
+0x6d540000 - 0x6d553000 	C:\Program Files\Java\jdk1.5.0_12\jre\bin\net.dll
+0x71ab0000 - 0x71ac7000 	C:\WINDOWS\system32\WS2_32.dll
+0x71aa0000 - 0x71aa8000 	C:\WINDOWS\system32\WS2HELP.dll
+0x6d560000 - 0x6d569000 	C:\Program Files\Java\jdk1.5.0_12\jre\bin\nio.dll
+0x77120000 - 0x771ab000 	C:\WINDOWS\system32\OLEAUT32.DLL
+
+VM Arguments:
+java_command: whowantsto.WhoWantsTo
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+CLASSPATH=.;C:\Program Files\Java\jre1.6.0_01\lib\ext\QTJava.zip;C:\Program Files\Java\jdk1.5.0_12\bin;
+PATH=C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\Common Files\Roxio Shared\DLLShared\;C:\Program Files\VDMSound\;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\Java\jdk1.5.0_12\bin;;Pñ
+USERNAME=Rodney
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 15 Stepping 6, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows XP Build 2600 Service Pack 2
+
+CPU:total 2 (cores per cpu 2, threads per core 1) family 6 model 15 stepping 6, cmov, cx8, fxsr, mmx, sse, sse2
+
+Memory: 4k page, physical 1046952k(286832k free), swap 2517352k(1898396k free)
+
+vm_info: Java HotSpot(TM) Client VM (1.5.0_12-b04) for windows-x86, built on May  2 2007 02:07:59 by "java_re" with MS VC++ 6.0
+
