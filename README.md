@@ -9,3 +9,5 @@ The Music and images were extracted from the Offical Who Wants to be a Millionai
 
 
 As the copyright for the WHo Wants to be a Millionaire game is owned by Sony Pictures Television, eventhough I have written the code, it cannot be sold or distributed.
+
+The Game worked on WIndows XP in 2010  but requires furter work to patch for higher Windows version and to improve the old Swing GUI interface
