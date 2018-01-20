@@ -45,7 +45,10 @@ public class AccessJDBCUtil {
         
     }
     
-    /** Creates a Connection to a Access Database */
+    /** Creates a Connection to a Access Database
+     * @param filename
+     * @return 
+     * @throws java.sql.SQLException */
     public static java.sql.Connection getAccessDBConnection(String filename) throws SQLException {
         filename = filename.replace('\\', '/').trim();
         String databaseURL = accessDBURLPrefix + filename + accessDBURLSuffix;

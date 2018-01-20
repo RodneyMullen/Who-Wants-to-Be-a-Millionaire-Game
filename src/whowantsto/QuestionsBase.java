@@ -246,40 +246,21 @@ public class QuestionsBase
      **/
     public boolean checkQuestionArray(int questioninput, char difficultyinput)
     {
+        
         if(difficultyinput == 'e')
         {
-            if(easyquestions[questioninput] == true)
-            {
-                return true;
-            }
-            else
-            {
-                 return false;
-            }
-               
+            return easyquestions[questioninput] == true;
+                     
         }
         else if(difficultyinput == 'm')
         {
-            if(mediumquestions[questioninput] == true)
-            {
-                return true;
-            }
-            else
-            {
-                 return false;
-            }
-               
+            return mediumquestions[questioninput] == true;
+                           
         }
         else
         {
-            if(hardquestions[questioninput] == true)
-            {
-                return true;
-            }
-            else
-            {
-                 return false;
-            }
+            return hardquestions[questioninput] == true;
+            
         }
     }
     
@@ -318,9 +299,9 @@ public class QuestionsBase
             }
            
         }
-        try
+        try(PrintWriter Print_to_file= new PrintWriter(new FileWriter("files/answered_questions.dat")))
         {
-            PrintWriter Print_to_file= new PrintWriter(new FileWriter("files/answered_questions.dat"));
+            
             Print_to_file.println(easyline);
             Print_to_file.println(mediumline);
             Print_to_file.println(hardline);
@@ -403,7 +384,7 @@ public class QuestionsBase
      */
     private Questions retrieveQuestion(int questioninput, char difficultyinput)
     {
-        String query="";
+        String query;
         Questions Question = new Questions();
        
         
@@ -452,7 +433,7 @@ public class QuestionsBase
        int number_of_questions;
        
         double doublerandom = Math.random()*100;
-        int newnumber = 0;
+        int newnumber;
         if(difficultyinput == 'e')
         {
             
@@ -534,17 +515,17 @@ public class QuestionsBase
     {
         ask_a_friend_timelimit = newtimelimit;
         String version="";
-        try
+        try(BufferedReader Readfile = new BufferedReader(new FileReader("files/version.dat")))
         {
             
         
-        BufferedReader Readfile = new BufferedReader(new FileReader("files/version.dat"));
+        
         version = Readfile.readLine();
         Readfile.close();
-        PrintWriter Print_to_file= new PrintWriter(new FileWriter("files/version.dat"));
-        Print_to_file.println(version);
-        Print_to_file.println(ask_a_friend_timelimit);
-        Print_to_file.close();
+            try (PrintWriter Print_to_file = new PrintWriter(new FileWriter("files/version.dat"))) {
+                Print_to_file.println(version);
+                Print_to_file.println(ask_a_friend_timelimit);
+            }
         return true;
         
         }

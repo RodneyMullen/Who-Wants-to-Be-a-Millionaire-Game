@@ -8,16 +8,12 @@
  */
 
 package whowantsto;
-import java.io.*;
 import java.util.*;
 import java.awt.*; 
 import java.awt.event.*; 
 import javax.swing.*; 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import java.awt.color.*;
-import javax.swing.AbstractButton.*;
-import javax.swing.JCheckBox.*;
 
 /**
  *
@@ -32,30 +28,30 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
     private ImageIcon FiftyFiftySmallNormalimage, FiftyFiftySmallDisabledimage, AskAFriendSmallNormalimage, AskAFriendSmallDisabledimage, AskTheAudienceSmallNormalimage, AskTheAudienceSmallDisabledimage;
     private JTextPane NameEntry,AudienceNameEntry,EditAskAFriendTimeLimitEntry,Countdown;
    
-    private JOptionPane errorpane= new JOptionPane();// creates a dialog for an error message
+    final private JOptionPane errorpane= new JOptionPane();// creates a dialog for an error message
     private JLayeredPane Clock_pane;
     private JTextField A_answer, B_answer, C_answer, D_answer;
     private JLabel Clockimage;
     private Player Player;
     private PlayerBoard Playerboard;
     private QuestionsBase Questionsbase;
-    private javax.swing.Timer Timer = new javax.swing.Timer(1000,this);
-    private Vector<String> Multiplayernames; // used to take in array of multiplayer names
+    final private javax.swing.Timer Timer = new javax.swing.Timer(1000,this);
+    private ArrayList<String> Multiplayernames; // used to take in array of multiplayer names
     private Object[] multiplayernames_text_array;
     private int counter, iteration;
     private double clock_next_image;
-    private String backgroundimage = "images/background1024x768.gif";
-     private String fiftyfiftysmallnormal = "images/small5050normal.gif";
-    private String fiftyfiftysmalldisabled = "images/small5050_xed.gif";
-     private String askafriendsmallnormal = "images/smallaskafriend_normal.gif";
-    private String askafriendsmalldisabled = "images/smallaskafriend_xed.gif";
-     private String asktheaudiencesmallnormal = "images/smallasktheaudience_normal.gif";
-    private String asktheaudiencesmalldisabled = "images/smallasktheaudience_xed.gif";
-    private String scoreiconlocation = "images/scoreicon.gif";
-     private String leaderboardicon = "images/scoreboardicon.gif";
-     private String graphbackdropicon = "images/Graphbackdrop3.gif";
-     private String graphcovericon = "images/graphcover2.gif";
-     private String Clockicons = "images/Clock/Clock";  // parital string of the clock images
+    final private String backgroundimage = "images/background1024x768.gif";
+    final private String fiftyfiftysmallnormal = "images/small5050normal.gif";
+    final private String fiftyfiftysmalldisabled = "images/small5050_xed.gif";
+    final private String askafriendsmallnormal = "images/smallaskafriend_normal.gif";
+    final private String askafriendsmalldisabled = "images/smallaskafriend_xed.gif";
+    final private String asktheaudiencesmallnormal = "images/smallasktheaudience_normal.gif";
+    final private String asktheaudiencesmalldisabled = "images/smallasktheaudience_xed.gif";
+    final private String scoreiconlocation = "images/scoreicon.gif";
+    final private String leaderboardicon = "images/scoreboardicon.gif";
+    final private String graphbackdropicon = "images/Graphbackdrop3.gif";
+    final private String graphcovericon = "images/graphcover2.gif";
+    final private String Clockicons = "images/Clock/Clock";  // parital string of the clock images
      public WhoWantsTo WhoWantsTo;  // class instance
      private boolean is_end_of_multiplayer_game = false; // used to show main leader board at end of multiplayer game
      
@@ -70,6 +66,7 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
     {
          javax.swing.SwingUtilities.invokeLater(new Runnable() 
 		{ 
+                        @Override
 			public void run() 
 			{ 
 				createAndShowGUI(); 
@@ -152,7 +149,7 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
         
         LeaderBoard_Pane.setPreferredSize(new Dimension(960, 550));
         
-        Vector Playerboard_vector = Playerboard.returnPlayerBoard();
+        ArrayList<Player> Playerboard_vector = Playerboard.returnPlayerBoard();
         int number_on_scoreboard;
         if(Playerboard_vector.isEmpty()==true)
         {
@@ -195,7 +192,7 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
             int ycoordinate;
              for(int i=0; i<number_on_scoreboard; i++)
              {
-                    Player thisPlayer = (Player) Playerboard_vector.elementAt(i);
+                    Player thisPlayer = (Player) Playerboard_vector.get(i);
                     ycoordinate = (i*60) + 60;  
                     TempJLabel = new JLabel(LeaderBoardimage);
                     TempJLabel.setBounds(0, ycoordinate,960,47);
@@ -365,7 +362,7 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
     }
     
     // takes in an array of strings and allows user to edit them
-    public void editMultiPlayerNames(Vector<String> names, WhoWantsTo WWT)
+    public void editMultiPlayerNames(ArrayList<String> names, WhoWantsTo WWT)
     {
         Multiplayernames = names;
         WhoWantsTo = WWT;
@@ -400,7 +397,7 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
             EnterName_Pane.add( EntryLabel,new Integer(0));
             
             JTextPane MultiPlayerNameEntry =  new JTextPane();
-            MultiPlayerNameEntry.setText(Multiplayernames.elementAt(i));
+            MultiPlayerNameEntry.setText(Multiplayernames.get(i));
             MultiPlayerNameEntry.setFocusable(true);
             MultiPlayerNameEntry.setEditable(true);
             MultiPlayerNameEntry.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 28));
@@ -441,7 +438,7 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
     }
     
     // returns vector of multi playernames
-    public Vector<String> getMultiPlayerNames()
+    public ArrayList<String> getMultiPlayerNames()
     {
         return Multiplayernames;
     }
@@ -836,9 +833,11 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
        
     }
     
-     
+    @Override 
     public void itemStateChanged(ItemEvent e) 
 	{}
+    
+    @Override
     public void actionPerformed(ActionEvent e)
     {
              if(e.getSource() ==  PlayerNameEntryContinue_button)
@@ -884,7 +883,7 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
                      for(int i=0; i< multiplayernames_text_array.length; i++)
                      {
                          JTextPane value = (JTextPane) multiplayernames_text_array[i];
-                         Multiplayernames.setElementAt(value.getText().trim(),i);
+                         Multiplayernames.set(i,value.getText().trim());
                         
                      }
                      
@@ -952,7 +951,7 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
                  // 15 pics so 20 seconds would change the pic every .75 iterations.
                  // counter is number of seconds on timer
                  // clock_next_image is each iteration
-                int current_count = 0;
+                int current_count;
                
                      current_count = (int) Math.round(iteration*clock_next_image);
                      
@@ -1000,7 +999,7 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
 		{
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		}
-		catch(Exception e)
+		catch(ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e)
 		{
 			System.out.println("Error in main GUI");
 		}

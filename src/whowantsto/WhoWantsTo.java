@@ -17,9 +17,7 @@ import javax.swing.*;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
-import java.awt.color.*;
-import javax.swing.AbstractButton.*;
-import javax.swing.JCheckBox.*;
+
 
 
 /**
@@ -28,8 +26,8 @@ import javax.swing.JCheckBox.*;
  */
 public class WhoWantsTo extends JPanel implements ActionListener
 {
-    private JFrame frame; // frame for main window
-    private String game_name = "Who Wants to be An Altar Server";
+    final private JFrame frame; // frame for main window
+    final private String game_name = "Who Wants to be An Altar Server";
     private JMenuBar Menubar; // menu tool bar
     private JMenu File_menu, Edit_menu, View_menu, Help_menu, MusicSetting; //Menus on toolbar; File, Edit, View, Help
     private JMenuItem OnePlayer, MultiPlayer, RestoreQuestions, EditMultiPlayers,EditPlayerName, MusicOn, MusicOff,Ask_A_Friend_Time_Limit, ViewPlayerBoard, HelpScreen, Version, SkipQuestion; // menu itmes for each menu
@@ -39,45 +37,45 @@ public class WhoWantsTo extends JPanel implements ActionListener
     private JTextPane ScoreOne, ScoreOneAmount, ScoreOneIcon, ScoreTwo,ScoreTwoAmount, ScoreTwoIcon, ScoreThree, ScoreThreeAmount, ScoreThreeIcon, ScoreFour, ScoreFourAmount, ScoreFourIcon, ScoreFive, ScoreFiveAmount, ScoreFiveIcon, ScoreSix, ScoreSixAmount, ScoreSixIcon, ScoreSeven, ScoreSevenAmount, ScoreSevenIcon, ScoreEight, ScoreEightAmount, ScoreEightIcon, ScoreNine, ScoreNineAmount, ScoreNineIcon, ScoreTen, ScoreTenAmount, ScoreTenIcon, ScoreEleven, ScoreElevenAmount, ScoreElevenIcon, ScoreTweleve, ScoreTweleveAmount, ScoreTweleveIcon, ScoreThirteen, ScoreThirteenAmount, ScoreThirteenIcon, ScoreFourteen, ScoreFourteenAmount, ScoreFourteenIcon, ScoreFifteen, ScoreFifteenAmount, ScoreFifteenIcon,NameEntry,AudienceNameEntry,EnterNameText;
     private JTextArea Question, AnswerA, AnswerB,AnswerC, AnswerD;
     private JLayeredPane EnterName_Pane, EnterAudienceNumber_Pane;
-    private JOptionPane infopane; // creates a dialog for an information message
-    private JOptionPane errorpane;// creates a dialog for an error message
-    private JOptionPane Versionpane; // create a dialog to return a yes or no answer
+    final private JOptionPane infopane; // creates a dialog for an information message
+    final private JOptionPane errorpane;// creates a dialog for an error message
+    final private JOptionPane Versionpane; // create a dialog to return a yes or no answer
    
-    private String logo = "images/altarserverlogo3.gif"; // logo for game
-    private String backgroundimage = "images/background1024x768.gif";
-    private String fiftyfifty = "images/5050icon_normal.gif";
-    private String fiftyfiftypressed = "images/5050icon_yellow.gif";
-    private String fiftyfiftydisabled = "images/5050icon_xed.gif";
-    private String fiftyfiftysmallnormal = "images/small5050normal.gif";
-    private String fiftyfiftysmalldisabled = "images/small5050_xed.gif";
-    private String askafriend = "images/askafriendicon_normal.gif";
-    private String askafriendpressed = "images/askafriendicon_yellow.gif";
-    private String askafrienddisabled = "images/askafriendicon_xed.gif";
-    private String askafriendsmallnormal = "images/smallaskafriend_normal.gif";
-    private String askafriendsmalldisabled = "images/smallaskafriend_xed.gif";
-    private String asktheaudience = "images/asktheaudienceicon_normal.gif";
-    private String asktheaudiencepressed = "images/asktheaudienceicon_yellow.gif";
-    private String asktheaudiencedisabled = "images/asktheaudienceicon_xed.gif";
-    private String asktheaudiencesmallnormal = "images/smallasktheaudience_normal.gif";
-    private String asktheaudiencesmalldisabled = "images/smallasktheaudience_xed.gif";
-    private String withdraw = "images/withdrawicon_normal.gif";
-    private String withdrawpressed = "images/withdrawicon_yellow.gif";
-    private String scoreiconlocation = "images/scoreicon.gif";
-    private String amountbaricon = "images/amountbar.gif";
-    private String questionicon = "images/questionicon.gif";
-    private String answericon = "images/answericon.gif";
-    private String a_answericon = "images/a_answericon.gif";
-    private String a_answerselecticon = "images/a_answericonselect.gif";
-    private String b_answericon = "images/b_answericon.gif";
-    private String b_answerselecticon = "images/b_answericonselect.gif";
-    private String c_answericon = "images/c_answericon.gif";
-    private String c_answerselecticon = "images/c_answericonselect.gif";
-    private String d_answericon = "images/d_answericon.gif";
-    private String d_answerselecticon = "images/d_answericonselect.gif";
-    private String answerselectedicon = "images/answerselectedicon.gif";
-    private String answercorrecticon = "images/answercorrecticon.gif";
-    private String answerlineicon = "images/answerline.gif";
-    private String leaderboardicon = "images/scoreboardicon.gif";
+    final private String logo = "images/altarserverlogo3.gif"; // logo for game
+    final private String backgroundimage = "images/background1024x768.gif";
+    final private String fiftyfifty = "images/5050icon_normal.gif";
+    final private String fiftyfiftypressed = "images/5050icon_yellow.gif";
+    final private String fiftyfiftydisabled = "images/5050icon_xed.gif";
+    final private String fiftyfiftysmallnormal = "images/small5050normal.gif";
+    final private String fiftyfiftysmalldisabled = "images/small5050_xed.gif";
+    final private String askafriend = "images/askafriendicon_normal.gif";
+    final private String askafriendpressed = "images/askafriendicon_yellow.gif";
+    final private String askafrienddisabled = "images/askafriendicon_xed.gif";
+    final private String askafriendsmallnormal = "images/smallaskafriend_normal.gif";
+    final private String askafriendsmalldisabled = "images/smallaskafriend_xed.gif";
+    final private String asktheaudience = "images/asktheaudienceicon_normal.gif";
+    final private String asktheaudiencepressed = "images/asktheaudienceicon_yellow.gif";
+    final private String asktheaudiencedisabled = "images/asktheaudienceicon_xed.gif";
+    final private String asktheaudiencesmallnormal = "images/smallasktheaudience_normal.gif";
+    final private String asktheaudiencesmalldisabled = "images/smallasktheaudience_xed.gif";
+    final private String withdraw = "images/withdrawicon_normal.gif";
+    final private String withdrawpressed = "images/withdrawicon_yellow.gif";
+    final private String scoreiconlocation = "images/scoreicon.gif";
+    final private String amountbaricon = "images/amountbar.gif";
+    final private String questionicon = "images/questionicon.gif";
+    final private String answericon = "images/answericon.gif";
+    final private String a_answericon = "images/a_answericon.gif";
+    final private String a_answerselecticon = "images/a_answericonselect.gif";
+    final private String b_answericon = "images/b_answericon.gif";
+    final private String b_answerselecticon = "images/b_answericonselect.gif";
+    final private String c_answericon = "images/c_answericon.gif";
+    final private String c_answerselecticon = "images/c_answericonselect.gif";
+    final private String d_answericon = "images/d_answericon.gif";
+    final private String d_answerselecticon = "images/d_answericonselect.gif";
+    final private String answerselectedicon = "images/answerselectedicon.gif";
+    final private String answercorrecticon = "images/answercorrecticon.gif";
+    final private String answerlineicon = "images/answerline.gif";
+    final private String leaderboardicon = "images/scoreboardicon.gif";
     private JLayeredPane QuestionLayeredPane,AnswersLayeredPane;
     
     public boolean music; // tells program if music is set to be on or off
@@ -87,7 +85,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
     Questions QuestionAsked; //current question being asked
     public ScoreBoard Scoreboard; // shows instance of Scoreboard 
    
-    private Vector <String> Name_stack;  // stack of names to pass to Game instances to intialise players
+    private ArrayList <String> Name_stack;  // stack of names to pass to Game instances to intialise players
     private Game Game;
     private  DisplayGUI DisplayGUI;
     public Music Background_music;
@@ -380,7 +378,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
         LowerGame_Panel.setPreferredSize(new Dimension(960, 205));
         LowerGame_Panel.setOpaque(false);
         AmountBar = new JLabel(new ImageIcon(amountbaricon));
-         //AmountBar.setText("€500");
+         //AmountBar.setText("ï¿½500");
          AmountBar.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 85));
          AmountBar.setHorizontalTextPosition(JLabel.CENTER);
          AmountBar.setVerticalTextPosition(JLabel.CENTER);
@@ -422,7 +420,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
         ImageIcon AskTheAudienceSmallDisabledimage = new ImageIcon(asktheaudiencesmalldisabled);
         
         LeaderBoard_Pane.setPreferredSize(new Dimension(960, 550));
-         Vector Playerboard_vector = Playerboard.returnPlayerBoard();
+        ArrayList Playerboard_vector = Playerboard.returnPlayerBoard();
         int number_on_scoreboard;
         if(Playerboard_vector.isEmpty())
         {
@@ -465,7 +463,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
             int ycoordinate;
              for(int i=0; i<number_on_scoreboard; i++)
              {
-                    Player Player = (Player) Playerboard_vector.elementAt(i);
+                    Player Player = (Player) Playerboard_vector.get(i);
                     ycoordinate = (i*60) + 60;  
                     TempJLabel = new JLabel(LeaderBoardimage);
                     TempJLabel.setBounds(0, ycoordinate,960,47);
@@ -593,7 +591,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
         ImageIcon AskTheAudienceSmallDisabledimage = new ImageIcon(asktheaudiencesmalldisabled);
         
         LeaderBoard_Pane.setPreferredSize(new Dimension(960, 550));
-         Vector Playerboard_vector = Multiplayerboard.returnPlayerBoard();
+         ArrayList Playerboard_vector = Multiplayerboard.returnPlayerBoard();
         int number_on_scoreboard;
         if(Playerboard_vector.isEmpty())
         {
@@ -636,7 +634,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
             int ycoordinate;
              for(int i=0; i<number_on_scoreboard; i++)
              {
-                    Player Player = (Player) Playerboard_vector.elementAt(i);
+                    Player Player = (Player) Playerboard_vector.get(i);
                     ycoordinate = (i*60) + 60;  
                     TempJLabel = new JLabel(LeaderBoardimage);
                     TempJLabel.setBounds(0, ycoordinate,960,47);
@@ -743,7 +741,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
     {
         //frame.remove(Main_Panel);
         setMainPanel();
-        Name_stack = new Vector<String>(0);
+        Name_stack = new ArrayList<>();
         JPanel Blank_Panel1 = new JPanel();
          Blank_Panel1.setPreferredSize(new Dimension(10, 47));
         Blank_Panel1.setOpaque(false);
@@ -820,7 +818,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
     {
         //frame.remove(Main_Panel);
         setMainPanel();
-        Name_stack = new Vector<String>(0);
+        Name_stack = new ArrayList<>();
         JPanel Blank_Panel1 = new JPanel();
         Blank_Panel1.setPreferredSize(new Dimension(10, 47));
         Blank_Panel1.setOpaque(false);
@@ -1519,54 +1517,57 @@ public class WhoWantsTo extends JPanel implements ActionListener
         
         final JLabel Answer = Answerlabel;
         final JButton BText = AnswerText;
-       final Runnable SmallThread = new Runnable()
-       {
+       final Runnable SmallThread;
+        SmallThread = new Runnable()
+        {
             
-               boolean keepgoing =true;
-               public void run()
-               {
-                   while(keepgoing == true)
-                   {
-                        try 
-                        {
-            
-                           
-                            ImageIcon answercorrectimage = new ImageIcon(answercorrecticon);
-                            ImageIcon answericonimage = new ImageIcon(answericon);
-                          
-                            Answer.setIcon(answercorrectimage);
-                            BText.setForeground(new Color(0x000000));
-                            Answer.repaint();
-                            Thread.sleep(300);
-                           
-                            Answer.setIcon(answericonimage);
-                            BText.setForeground(new Color(0xFFFFFF));
-                            Answer.repaint();
-                            Thread.sleep(300);
-                          
-                            Answer.setIcon(answercorrectimage);
-                            BText.setForeground(new Color(0x000000));
-                            Answer.repaint();
-                            Thread.sleep(300);
-                           
-                            Answer.setIcon(answericonimage);
-                            BText.setForeground(new Color(0xFFFFFF));
-                            Answer.repaint();
-                            Thread.sleep(300);
-                           
-                            Answer.setIcon(answercorrectimage);
-                            BText.setForeground(new Color(0x000000));
-                            Answer.repaint();
-                            
-                            keepgoing = false;
-                         }
-                         catch (InterruptedException e) 
-                         {
-                           
-                         }
+            boolean keepgoing =true;
+            @Override
+            @SuppressWarnings("SleepWhileInLoop")
+            public void run()
+            {
+                while(keepgoing == true)
+                {
+                    try
+                    {
+                        
+                        
+                        ImageIcon answercorrectimage = new ImageIcon(answercorrecticon);
+                        ImageIcon answericonimage = new ImageIcon(answericon);
+                        
+                        Answer.setIcon(answercorrectimage);
+                        BText.setForeground(new Color(0x000000));
+                        Answer.repaint();
+                        Thread.sleep(300); // require time to paint and wait
+                        
+                        Answer.setIcon(answericonimage);
+                        BText.setForeground(new Color(0xFFFFFF));
+                        Answer.repaint();
+                        Thread.sleep(300);
+                        
+                        Answer.setIcon(answercorrectimage);
+                        BText.setForeground(new Color(0x000000));
+                        Answer.repaint();
+                        Thread.sleep(300);
+                        
+                        Answer.setIcon(answericonimage);
+                        BText.setForeground(new Color(0xFFFFFF));
+                        Answer.repaint();
+                        Thread.sleep(300);
+                        
+                        Answer.setIcon(answercorrectimage);
+                        BText.setForeground(new Color(0x000000));
+                        Answer.repaint();
+                        
+                        keepgoing = false;
                     }
-                 }
-            };
+                    catch (InterruptedException e)
+                    {
+                        
+                    }
+                }
+            }
+        };
        new Thread(SmallThread).start();
        
         
@@ -1652,10 +1653,12 @@ public class WhoWantsTo extends JPanel implements ActionListener
         
         
             
-            final Runnable SmallThread = new Runnable()
+            final Runnable SmallThread;
+            SmallThread = new Runnable()
             {
             
                   boolean keepgoing =true;
+                  @Override
                   public void run()
                   {
                       while(keepgoing == true)
@@ -1820,10 +1823,12 @@ public class WhoWantsTo extends JPanel implements ActionListener
     public void answerWrong()
     {
         
-       final Runnable SmallThread = new Runnable()
+       final Runnable SmallThread;
+       SmallThread = new Runnable()
             {
             
                   boolean keepgoing =true;
+                  @Override
                   public void run()
                   {
                       while(keepgoing == true)
@@ -1939,14 +1944,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
         int n = JOptionPane.showConfirmDialog(frame, message,"Make a Selection",JOptionPane.YES_NO_OPTION);
 
 
-		if(n== JOptionPane.YES_OPTION)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+        return n== JOptionPane.YES_OPTION;
 
     }
     
@@ -1959,9 +1957,9 @@ public class WhoWantsTo extends JPanel implements ActionListener
     //This method accesss a file to show version of the game and prints a dialogue to screen
     public void version()
     {
-        try
+        try(BufferedReader Readfile = new BufferedReader(new FileReader("files/version.dat")))
         {
-            BufferedReader Readfile = new BufferedReader(new FileReader("files/version.dat"));
+            
             String version_number = Readfile.readLine();
             JOptionPane.showMessageDialog(frame, " Who Wants To... \n Version: "+version_number+" \n Author: Rodney Mullen \n 2007","About Who Wants To...",JOptionPane.INFORMATION_MESSAGE);
             Readfile.close();
@@ -1988,7 +1986,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
     
     
     
-   
+   @Override
     public void actionPerformed(ActionEvent e)
 	{
                 if(e.getSource() == StartSingleGame_Button)
@@ -2130,36 +2128,34 @@ public class WhoWantsTo extends JPanel implements ActionListener
                     WithdrawGame_Button.removeActionListener(this);
                      if(yesNoDialogueBox("Are you sure you want to Withdraw") == true)
                     {
-                         final Runnable SmallThread = new Runnable()
-                        {
-            
-                                
-                                public void run()
-                                {
-                                    
-                                        try 
-                                        {
-                                            if(game_info[0] == false)
-                                            {
-                                                showQuestion();
-                                            }
-                                            checkAllAnswersDisplayed();
-                                            char answer = QuestionAsked.getAnswer();
-                                            switch(answer)
-                                            {
-                                                case 'A': answerFlashGreen(AnswerA_Label,A_AnswerText); break;
-                                                case 'B': answerFlashGreen(AnswerB_Label,B_AnswerText);break;
-                                                case 'C': answerFlashGreen(AnswerC_Label,C_AnswerText); break;
-                                                case 'D': answerFlashGreen(AnswerD_Label,D_AnswerText); break;
-                                            }
-                                            Thread.sleep(2000);
-                                            Game.endGame();
-                                        }
-                                        catch(InterruptedException ie)
-                                        {
-                                            System.err.println(ie);
-                                        }                                       
-                                }
+                         final Runnable SmallThread;
+                         // convert to lambda expression removes run
+                         SmallThread = new Runnable() {
+                            @Override
+                             public void run() {
+                                 try
+                                 {
+                                     if(game_info[0] == false)
+                                     {
+                                         showQuestion();
+                                     }
+                                     checkAllAnswersDisplayed();
+                                     char answer = QuestionAsked.getAnswer();
+                                     switch(answer)
+                                     {
+                                         case 'A': answerFlashGreen(AnswerA_Label,A_AnswerText); break;
+                                         case 'B': answerFlashGreen(AnswerB_Label,B_AnswerText);break;
+                                         case 'C': answerFlashGreen(AnswerC_Label,C_AnswerText); break;
+                                         case 'D': answerFlashGreen(AnswerD_Label,D_AnswerText); break;
+                                     }
+                                     Thread.sleep(2000);
+                                     Game.endGame();
+                                 }
+                                 catch(InterruptedException ie)
+                                 {
+                                     System.err.println(ie);
+                                 }
+                             }
                          };
                          new Thread(SmallThread).start();
                     }
@@ -2235,7 +2231,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
                 {
                    checkAllAnswersDisplayed();
                   
-                   int sleep=1000;
+                   int sleep;
                    if(Scoreboard.getDifficulty() == 'e')
                    {
                         sleep = 1000;
@@ -2268,6 +2264,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
                     {
             
                         boolean keepgoing =true;
+                        @Override
                         public void run()
                         {
                             while(keepgoing == true)
@@ -2303,7 +2300,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
                  else if(e.getSource() == B_AnswerText)
                 {
                    checkAllAnswersDisplayed();
-                   int sleep=1000;
+                   int sleep;
                    if(Scoreboard.getDifficulty() == 'e')
                    {
                         sleep = 1000;
@@ -2333,6 +2330,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
                     {
             
                         boolean keepgoing =true;
+                        @Override
                         public void run()
                         {
                             while(keepgoing == true)
@@ -2365,7 +2363,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
                  else if(e.getSource() == C_AnswerText)
                 {
                    checkAllAnswersDisplayed();
-                   int sleep=1000;
+                   int sleep;
                    if(Scoreboard.getDifficulty() == 'e')
                    {
                         sleep = 1000;
@@ -2395,6 +2393,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
                     {
             
                         boolean keepgoing =true;
+                        @Override
                         public void run()
                         {
                            while(keepgoing == true)
@@ -2425,7 +2424,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
                  else if(e.getSource() == D_AnswerText)
                 {
                   checkAllAnswersDisplayed();
-                   int sleep=1000;
+                   int sleep;
                    if(Scoreboard.getDifficulty() == 'e')
                    {
                         sleep = 1000;
@@ -2455,6 +2454,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
                     {
             
                         boolean keepgoing =true;
+                        @Override
                         public void run()
                         {
                             while(keepgoing == true)
@@ -2487,7 +2487,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
                 {
                     
                    
-                        Name_stack.addElement(NameEntry.getText().trim());
+                        Name_stack.add(NameEntry.getText().trim());
                     
                         Game.startGame(Name_stack);
                    
@@ -2504,7 +2504,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
                     }
                     else
                     {
-                        Name_stack.addElement(NameEntry.getText().trim());
+                        Name_stack.add(NameEntry.getText().trim());
                         EnterNameText.setText(" Player: "+NameEntry.getText().trim()+" added, enter new player name");
                        NameEntry.setText("");
                     }
@@ -2686,7 +2686,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
 		{
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		}
-		catch(Exception e)
+		catch(ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e)
 		{
 			System.out.println("Error in main GUI");
 		}
@@ -2702,6 +2702,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
     public static void main(String[] args) {
        javax.swing.SwingUtilities.invokeLater(new Runnable() 
 		{ 
+                        @Override
 			public void run() 
 			{ 
 				createAndShowGUI(); 
