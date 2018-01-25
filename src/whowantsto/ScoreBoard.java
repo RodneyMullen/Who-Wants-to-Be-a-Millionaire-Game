@@ -16,7 +16,7 @@ package whowantsto;
 public class ScoreBoard 
 {
     final private String[] scores; 
-    private String[] milestones = new String[] {"�1,000","�32,000","�1 MILLION"}; // milestones
+    final private String[] milestones = new String[] {"€1,000","€32,000","€1 MILLION"}; // milestones
     private int last_answer; // shows the last answer
     private char difficulty; // set to e for easy, m for medium or h for hard. 
     public WhoWantsTo Who_wants_to_game;   //current game
@@ -24,13 +24,13 @@ public class ScoreBoard
     /** Creates a new instance of ScoreBoard */
     public ScoreBoard()
     {   
-        this.scores = new String[]{"�0","�100","�200","�300","�500","�1,000","�2,000","�4,000","�8,000","�16,000","�32,000","�64,000","�125,000","�250,000","�500,000","�1 MILLION"};
+        this.scores = new String[]{"€0","€100","€200","€300","€500","€1,000","€2,000","€4,000","€8,000","€16,000","€32,000","€64,000","€125,000","€250,000","€500,000","€1 MILLION"};
 }
     
     
     public ScoreBoard(WhoWantsTo newWho_wants_to_game) 
     {
-        this.scores = new String[]{"�0","�100","�200","�300","�500","�1,000","�2,000","�4,000","�8,000","�16,000","�32,000","�64,000","�125,000","�250,000","�500,000","�1 MILLION"};
+        this.scores = new String[]{"€0","€100","€200","€300","€500","€1,000","€2,000","€4,000","€8,000","€16,000","€32,000","€64,000","€125,000","€250,000","€500,000","€1 MILLION"};
         Who_wants_to_game = newWho_wants_to_game;
     }
     

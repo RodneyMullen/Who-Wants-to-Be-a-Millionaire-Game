@@ -164,7 +164,7 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
           {
             JTextPane Nothinghere_textpane= new JTextPane();
             Nothinghere_textpane.setText( "                         No Entries currently on Score Board");
-            Nothinghere_textpane.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+            Nothinghere_textpane.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 11));
             Nothinghere_textpane.setForeground(new Color(0xFFFF94));
             Nothinghere_textpane.setEditable(false);
             Nothinghere_textpane.setOpaque(false);
@@ -179,7 +179,7 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
             LeaderBoard_Pane.add(TempJLabel,new Integer(0));
             JLabel HeadingsLabel = new JLabel();
             HeadingsLabel.setText("Player Name                            Lifelines       Score Reached     Final Score");
-            HeadingsLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+            HeadingsLabel.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 11));
             HeadingsLabel.setForeground(new Color(0xFFFF94));
             HeadingsLabel.setBounds(290,0,960,47);
             LeaderBoard_Pane.add(HeadingsLabel,new Integer(1));
@@ -200,7 +200,7 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
                     ycoordinate = ycoordinate+10;
                     Playername_textpane = new JTextPane();
                     Playername_textpane.setText( i+1+"  "+thisPlayer.getPlayerName());
-                    Playername_textpane.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+                    Playername_textpane.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 11));
                     Playername_textpane.setForeground(new Color(0xFFFFFF));
                     Playername_textpane.setEditable(false);
                     Playername_textpane.setOpaque(false);
@@ -242,13 +242,13 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
                     LeaderBoard_Pane.add(TempAskTheAudienceLabel,new Integer(1));
                     ScoreBoard Scoreboard = new ScoreBoard();
                     ScoreReachedLabel = new JLabel(Scoreboard.intToString(thisPlayer.getPlayerScoreReached()));
-                    ScoreReachedLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+                    ScoreReachedLabel.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 11));
                     ScoreReachedLabel.setForeground(new Color(0x52416B));
                     ScoreReachedLabel.setBounds(555, ycoordinate-10,100,40);
                     LeaderBoard_Pane.add(ScoreReachedLabel,new Integer(1));
              
                     FinalScoreLabel = new JLabel(Scoreboard.intToString(thisPlayer.getPlayerScore()));
-                    FinalScoreLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+                    FinalScoreLabel.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 11));
                     FinalScoreLabel.setForeground(new Color(0x42C36B));
                     FinalScoreLabel.setBounds(617, ycoordinate-10,100,40);
                     LeaderBoard_Pane.add(FinalScoreLabel,new Integer(1));
@@ -259,7 +259,7 @@ public class DisplayGUI extends JPanel implements ActionListener,ItemListener
           JPanel  BottomScoreBoard_Panel = new JPanel();  
         BottomScoreBoard_Panel.setOpaque(false);
         ExitLeaderBoard_Button = new JButton("Exit");
-        ExitLeaderBoard_Button.setFont(new Font("Arial", Font.BOLD, 18));
+        ExitLeaderBoard_Button.setFont(new Font("Arial", Font.BOLD, 12));
         ExitLeaderBoard_Button.setForeground(new Color(0x42C36B));
         ExitLeaderBoard_Button.setBackground(new Color(0x52416B));
         ExitLeaderBoard_Button.setBorder(BorderFactory.createRaisedBevelBorder());

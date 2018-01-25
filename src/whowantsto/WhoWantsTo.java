@@ -449,7 +449,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
             TempJLabel.setBounds(0,0,960,47);
             LeaderBoard_Pane.add(TempJLabel,new Integer(0));
             JLabel HeadingsLabel = new JLabel();
-            HeadingsLabel.setText("Player Name                            Lifelines       Score Reached     Final Score");
+            HeadingsLabel.setText("Player Name                       Lifelines       Score Reached     Final Score");
             HeadingsLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
             HeadingsLabel.setForeground(new Color(0xFFFF94));
             HeadingsLabel.setBounds(290,0,960,47);
@@ -471,7 +471,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
                     ycoordinate = ycoordinate+10;
                     Playername_textpane = new JTextPane();
                     Playername_textpane.setText( i+1+"  "+Player.getPlayerName());
-                    Playername_textpane.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+                    Playername_textpane.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 10));
                     Playername_textpane.setForeground(new Color(0xFFFFFF));
                     Playername_textpane.setEditable(false);
                     Playername_textpane.setOpaque(false);
@@ -513,13 +513,13 @@ public class WhoWantsTo extends JPanel implements ActionListener
                     LeaderBoard_Pane.add(TempAskTheAudienceLabel,new Integer(1));
             
                     ScoreReachedLabel = new JLabel(Scoreboard.intToString(Player.getPlayerScoreReached()));
-                    ScoreReachedLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+                    ScoreReachedLabel.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 10));
                     ScoreReachedLabel.setForeground(new Color(0x52416B));
                     ScoreReachedLabel.setBounds(555, ycoordinate-10,100,40);
                     LeaderBoard_Pane.add(ScoreReachedLabel,new Integer(1));
              
                     FinalScoreLabel = new JLabel(Scoreboard.intToString(Player.getPlayerScore()));
-                    FinalScoreLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+                    FinalScoreLabel.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 10));
                     FinalScoreLabel.setForeground(new Color(0x42C36B));
                     FinalScoreLabel.setBounds(617, ycoordinate-10,100,40);
                     LeaderBoard_Pane.add(FinalScoreLabel,new Integer(1));
@@ -606,7 +606,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
           {
             JTextPane Nothinghere_textpane= new JTextPane();
             Nothinghere_textpane.setText( "                         No Entries currently on Score Board");
-            Nothinghere_textpane.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+            Nothinghere_textpane.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 10));
             Nothinghere_textpane.setForeground(new Color(0xFFFF94));
             Nothinghere_textpane.setEditable(false);
             Nothinghere_textpane.setOpaque(false);
@@ -621,7 +621,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
             LeaderBoard_Pane.add(TempJLabel,new Integer(0));
             JLabel HeadingsLabel = new JLabel();
             HeadingsLabel.setText("Player Name                            Lifelines       Score Reached     Final Score");
-            HeadingsLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+            HeadingsLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 10));
             HeadingsLabel.setForeground(new Color(0xFFFF94));
             HeadingsLabel.setBounds(290,0,960,47);
             LeaderBoard_Pane.add(HeadingsLabel,new Integer(1));
@@ -642,7 +642,7 @@ public class WhoWantsTo extends JPanel implements ActionListener
                     ycoordinate = ycoordinate+10;
                     Playername_textpane = new JTextPane();
                     Playername_textpane.setText( i+1+"  "+Player.getPlayerName());
-                    Playername_textpane.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+                    Playername_textpane.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 10));
                     Playername_textpane.setForeground(new Color(0xFFFFFF));
                     Playername_textpane.setEditable(false);
                     Playername_textpane.setOpaque(false);
@@ -684,13 +684,13 @@ public class WhoWantsTo extends JPanel implements ActionListener
                     LeaderBoard_Pane.add(TempAskTheAudienceLabel,new Integer(1));
             
                     ScoreReachedLabel = new JLabel(Scoreboard.intToString(Player.getPlayerScoreReached()));
-                    ScoreReachedLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+                    ScoreReachedLabel.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 8));
                     ScoreReachedLabel.setForeground(new Color(0x52416B));
                     ScoreReachedLabel.setBounds(555, ycoordinate-10,100,40);
                     LeaderBoard_Pane.add(ScoreReachedLabel,new Integer(1));
              
                     FinalScoreLabel = new JLabel(Scoreboard.intToString(Player.getPlayerScore()));
-                    FinalScoreLabel.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+                    FinalScoreLabel.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 8));
                     FinalScoreLabel.setForeground(new Color(0x42C36B));
                     FinalScoreLabel.setBounds(617, ycoordinate-10,100,40);
                     LeaderBoard_Pane.add(FinalScoreLabel,new Integer(1));
@@ -1586,20 +1586,20 @@ public class WhoWantsTo extends JPanel implements ActionListener
        if(checkstring.length() > 206)
        {
            
-           Question.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 15));
+           Question.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 11));
        }
        else if(checkstring.length() <= 206 && checkstring.length() > 108)
        {
-             Question.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 20));
+             Question.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 20));
        }
       
        else if(checkstring.length() <= 108 && checkstring.length() >= 96)
        {
-            Question.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 25));
+            Question.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 25));
        }
        else
        {
-           Question.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 28));
+           Question.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 28));
        }
        game_info[0] = true;
     }
@@ -1632,16 +1632,16 @@ public class WhoWantsTo extends JPanel implements ActionListener
       
        if(checkstring.length() >= 45)
        {
-            AnswerText.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 10));
+            AnswerText.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 8));
        }
        else if(checkstring.length() >= 29 && checkstring.length() < 45)
        {
            
-           AnswerText.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 12));
+           AnswerText.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 10));
        }
        else
        {
-           AnswerText.setFont(new Font("Copperplate Gothic Bold", Font.BOLD, 15));
+           AnswerText.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 12));
        }
        
     }
