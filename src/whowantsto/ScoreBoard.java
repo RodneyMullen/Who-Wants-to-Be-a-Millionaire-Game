@@ -15,19 +15,22 @@ package whowantsto;
  */
 public class ScoreBoard 
 {
-    private String[] scores = new String[]{"€0","€100","€200","€300","€500","€1,000","€2,000","€4,000","€8,000","€16,000","€32,000","€64,000","€125,000","€250,000","€500,000","€1 MILLION"}; // scores for game
-    private String[] milestones = new String[] {"€1,000","€32,000","€1 MILLION"}; // milestones
+    final private String[] scores; 
+    final private String[] milestones = new String[] {"â‚¬1,000","â‚¬32,000","â‚¬1 MILLION"}; // milestones
     private int last_answer; // shows the last answer
     private char difficulty; // set to e for easy, m for medium or h for hard. 
     public WhoWantsTo Who_wants_to_game;   //current game
     
     /** Creates a new instance of ScoreBoard */
     public ScoreBoard()
-    {}
+    {   
+        this.scores = new String[]{"â‚¬0","â‚¬100","â‚¬200","â‚¬300","â‚¬500","â‚¬1,000","â‚¬2,000","â‚¬4,000","â‚¬8,000","â‚¬16,000","â‚¬32,000","â‚¬64,000","â‚¬125,000","â‚¬250,000","â‚¬500,000","â‚¬1 MILLION"};
+}
     
     
     public ScoreBoard(WhoWantsTo newWho_wants_to_game) 
     {
+        this.scores = new String[]{"â‚¬0","â‚¬100","â‚¬200","â‚¬300","â‚¬500","â‚¬1,000","â‚¬2,000","â‚¬4,000","â‚¬8,000","â‚¬16,000","â‚¬32,000","â‚¬64,000","â‚¬125,000","â‚¬250,000","â‚¬500,000","â‚¬1 MILLION"};
         Who_wants_to_game = newWho_wants_to_game;
     }
     
@@ -90,14 +93,14 @@ public class ScoreBoard
         }
     }
     
-     //returns current score in string format i.e. €1,000
+     //returns current score in string format i.e. ï¿½1,000
     public String getScoreString()
     {
         
         return scores[last_answer];
     }
     
-    //returns current score in int format i.e. 4 for €1,000
+    //returns current score in int format i.e. 4 for ï¿½1,000
     public int getScoreInt()
     {
         return this.last_answer;
@@ -112,46 +115,34 @@ public class ScoreBoard
     //returns true if reached last quesiton
     public boolean isLastQuestion()
     {
-        if (this.last_answer == 15)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return this.last_answer == 15;
+        
     }
     
     //returns true if the next question is the last question
     public boolean isNextLastQuestion()
     {
         int nextanswer = last_answer+1;
-        if (nextanswer == 15)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return nextanswer == 15;
+        
     }
     
     //works out current score if got question wrong
     public int workOutScore()
     {
-        if(this.last_answer <5) // €100 - €500
+        if(this.last_answer <5) // ï¿½100 - ï¿½500
         {
             return 0;
         }
-        else if(this.last_answer >= 5 && this.last_answer <10) // €1,000 - €16,000
+        else if(this.last_answer >= 5 && this.last_answer <10) // ï¿½1,000 - ï¿½16,000
         {
             return 5;
         }
-        else if(this.last_answer >= 10 && this.last_answer <15) // €32,000 - €500,000
+        else if(this.last_answer >= 10 && this.last_answer <15) // ï¿½32,000 - ï¿½500,000
         {
             return 10;
         }
-        else // €1 MILLION
+        else // ï¿½1 MILLION
         {
             return 15;
         }
@@ -159,28 +150,14 @@ public class ScoreBoard
     // returns true if current value is a milestone
     public boolean isMilestone()
     {
-        if(this.last_answer == 5 || this.last_answer == 10)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return this.last_answer == 5 || this.last_answer == 10;
     }
     
     // returns true if current value is a milestone
     public boolean isNextQuestionMilestone()
     {
         int nextanswer = this.last_answer+1;
-        if(nextanswer == 5 || nextanswer == 10)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return nextanswer == 5 || nextanswer == 10;
     }
     
 }

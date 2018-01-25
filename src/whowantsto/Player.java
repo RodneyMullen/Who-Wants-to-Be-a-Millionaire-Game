@@ -116,14 +116,7 @@ public class Player
     //checks current player if a score has been made, if not returns false
     public boolean hasScoredYet()
     {
-        if(score == 0)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return score != 0;
     }
     
     public Player convertFromString(String convert)

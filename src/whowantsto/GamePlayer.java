@@ -18,6 +18,7 @@ public class GamePlayer extends Game
 {
     
     //needed method from Game,  begins new protocols for a game with one player
+    @Override
     public void startGameProtocol()
     {
        
@@ -26,6 +27,7 @@ public class GamePlayer extends Game
     }
     
     //needed method from Game, ends game protocol
+    @Override
     public void lastAction()
     {
         
@@ -37,20 +39,23 @@ public class GamePlayer extends Game
     }
     
     // takes in a vector and creates a new Player instance
-    public void setUpPlayers(Vector Playername)
+    @Override
+    public void setUpPlayers(ArrayList Playername)
     {
         String blank = "";
-        if(blank.compareTo((String) Playername.elementAt(0))==0)
+        if(blank.compareTo((String) Playername.get(0))==0)
         {
               Player = new Player("Player");
         }
         else
         {
-             Player = new Player((String) Playername.elementAt(0));
+             Player = new Player((String) Playername.get(0));
         }
        
        
     }
+
+    
     
     
 }

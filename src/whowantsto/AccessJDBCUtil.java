@@ -16,15 +16,14 @@ package whowantsto;
 import java.sql.*;
 
 public class AccessJDBCUtil {
-    private static final String accessDBURLPrefix = "jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=";
-    private static final String accessDBURLSuffix = ";DriverID=22;READONLY=true}";
+    private static final String accessDBURLPrefix = "jdbc:ucanaccess://";
     private Connection Connection;
     ResultSet Resultset;
     private String db_filename;
   
     static {
         try {
-            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
         } catch(ClassNotFoundException e) {
             System.err.println("JdbcOdbc Bridge Driver not found!");
             // ABORT ABORT... How? System.exit(1) is not nice from webapp...
@@ -45,12 +44,15 @@ public class AccessJDBCUtil {
         
     }
     
-    /** Creates a Connection to a Access Database */
+    /** Creates a Connection to a Access Database
+     * @param filename
+     * @return 
+     * @throws java.sql.SQLException */
     public static java.sql.Connection getAccessDBConnection(String filename) throws SQLException {
         filename = filename.replace('\\', '/').trim();
-        String databaseURL = accessDBURLPrefix + filename + accessDBURLSuffix;
+        String databaseURL = accessDBURLPrefix + filename;
         // System.err.println("Datebase URL: " + databaseURL);
-        return DriverManager.getConnection(databaseURL, "", "");
+        return DriverManager.getConnection(databaseURL);
     }  
     
     // method to setup current resultset
@@ -70,18 +72,18 @@ public class AccessJDBCUtil {
        
    }
     
-    /*
-    public static void main(String args[])
+    
+   /* public static void main(String args[])
     {
         AccessJDBCUtil Db = new AccessJDBCUtil();
         try
         {
-            Connection con = Db.getAccessDBConnection("C:/parish.mdb");
+            Connection con = AccessJDBCUtil.getAccessDBConnection("files/QuestionsBase.mdb");
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-          ResultSet srs = stmt.executeQuery("SELECT COUNT(*) FROM Parish_Households");
-           srs.first();
-           System.out.println(srs.getString(1));
-            srs.close();
+            try (ResultSet srs = stmt.executeQuery("SELECT COUNT(*) FROM Parish_Households")) {
+                srs.first();
+                System.out.println(srs.getString(1));
+            }
         }
         catch(SQLException sqle)
         {

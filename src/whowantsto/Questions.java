@@ -83,14 +83,8 @@ public class Questions
     //takes in the possible answer as a character depending on selection and checks against the answer, returns true if it is the answer
     public boolean isAnswer(char possibleanswer)
     {
-        if( possibleanswer == answer)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return possibleanswer == answer;
+       
     }
     
     

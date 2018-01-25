@@ -9,31 +9,32 @@
 package whowantsto;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import javazoom.jl.decoder.JavaLayerException;
 
 import javazoom.jl.player.Player;
-import javazoom.jl.player.advanced.*;
 /**
  *
  * @author Rodney
  */
 public class Music
 {
-    private String startup = "music/0-Commercials.mp3";
-    private String enternames = "music/0-Theme.mp3";
-    private String explain = "music/0-Explain.mp3";
+    final private String startup = "music/0-Commercials.mp3";
+    final private String enternames = "music/0-Theme.mp3";
+    final private String explain = "music/0-Explain.mp3";
     // for each of the areas : letsplay, Background, final, win, lose
     // need more easy music
-    private String[] easymusic = new String[] {"music/1-Letsplay.mp3","music/1-Background.mp3","","music/1-Win.mp3","music/1-Lose.mp3"};
-    private String[] mediummusic = new String[] {"music/2-Letsplay.mp3","music/2-Background.mp3","music/2-Final.mp3","music/2-Win.mp3","music/2-Lose.mp3"};
-    private String[] hardmusic = new String[] {"music/3-Letsplay.mp3","music/3-Background.mp3","music/3-Final.mp3", "music/3-Win.mp3","music/3-Lose.mp3"};
-    private String progress = "music/1-Progress.mp3";
-    private String leaderboard = "music/0-Closing.mp3";
-    private String winmillion ="music/0-Winmillion.mp3";
-    private String exit = "music/0-Goodbye.mp3";
-    private String fiftyfifty = "music/0-5050.mp3";
-    private String askafriend = "music/0-Phone.mp3";
-    private String asktheaudience = "music/0-asktheaudience.mp3"; // need
-    private String asktheaudienceslam = "music/0-asktheaudienceslamp.mp3";
+    final private String[] easymusic = new String[] {"music/1-Letsplay.mp3","music/1-Background.mp3","","music/1-Win.mp3","music/1-Lose.mp3"};
+    final private String[] mediummusic = new String[] {"music/2-Letsplay.mp3","music/2-Background.mp3","music/2-Final.mp3","music/2-Win.mp3","music/2-Lose.mp3"};
+    final private String[] hardmusic = new String[] {"music/3-Letsplay.mp3","music/3-Background.mp3","music/3-Final.mp3", "music/3-Win.mp3","music/3-Lose.mp3"};
+    final private String progress = "music/1-Progress.mp3";
+    final private String leaderboard = "music/0-Closing.mp3";
+    final private String winmillion ="music/0-Winmillion.mp3";
+    final private String exit = "music/0-Goodbye.mp3";
+    final private String fiftyfifty = "music/0-5050.mp3";
+    final private String askafriend = "music/0-Phone.mp3";
+    final private String asktheaudience = "music/0-asktheaudience.mp3"; // need
+    final private String asktheaudienceslam = "music/0-asktheaudienceslamp.mp3";
     private boolean continues;
     
     
@@ -117,6 +118,7 @@ public class Music
         final Runnable OuterThread = new Runnable()
         {
              
+                @Override
                 public void run() 
                 {
                    
@@ -156,7 +158,9 @@ public class Music
     
     /** following method takes in a character to show what level is needed
      * from e for easy, m for medium or h for hard. an int shows what sound is needed
-     * from 0 for lets play, 1 for background, 2 for win or 3 for lose
+     * from 0 for lets play, 1 for backgroun
+     * @param level
+     * @param soundneeded
      */
      
     public void playSound(char level, int soundneeded)
@@ -205,7 +209,7 @@ public class Music
             BufferedInputStream bis = new BufferedInputStream(fis);
             player = new Player(bis);
         }
-        catch (Exception e) {
+        catch (FileNotFoundException | JavaLayerException e) {
             System.out.println("Problem playing file " + filename);
             System.out.println(e);
         }
@@ -215,6 +219,7 @@ public class Music
          final Runnable Thread = new Runnable()
         {
              
+                @Override
                 public void run() 
                 {
                    

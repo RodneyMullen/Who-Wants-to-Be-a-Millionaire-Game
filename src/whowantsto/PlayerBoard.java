@@ -16,14 +16,16 @@ import java.io.*;
 public class PlayerBoard 
 {
     
-    private Vector<Player> PlayersBoardVector; // vector of Player Objects holding the player
+    private ArrayList<Player> PlayersBoardVector; // ArrayList of Player Objects holding the player
    
     
     
     // constructor to intialise PlayersBoardVector and to get the audience number from version.dat
     public PlayerBoard()
     {
-            PlayersBoardVector = new Vector<Player>();
+           // PlayersBoardVector = new Vector<Player>();
+        PlayersBoardVector = new ArrayList<>();
+        
             
              
     }
@@ -32,9 +34,9 @@ public class PlayerBoard
     public void populatePlayerBoard() 
     {
         
-        try
+        try(BufferedReader Readfile = new BufferedReader(new FileReader("files/playerboard.dat")))
         {
-            BufferedReader Readfile = new BufferedReader(new FileReader("files/playerboard.dat"));
+            
             String line = Readfile.readLine();
              while(line != null)
             {
@@ -56,14 +58,14 @@ public class PlayerBoard
         }
     }
     
-    // This method returns a vector of Player objects for the player boardplayer information.
-    public Vector returnPlayerBoard()
+    // This method returns an arraylist of Player objects for the player boardplayer information.
+    public ArrayList returnPlayerBoard()
     {
         return PlayersBoardVector;
     }
     
-    //takes in vector and changes current player board
-    public void createNewPlayerBoard(Vector<Player> Newboard)
+    //takes in ArrayList and changes current player board
+    public void createNewPlayerBoard(ArrayList<Player> Newboard)
     {
         PlayersBoardVector = Newboard;
     }
@@ -72,16 +74,13 @@ public class PlayerBoard
     public boolean writePlayerBoardToFile()
     {
        
-        try
+        try(PrintWriter Print_to_file= new PrintWriter(new FileWriter("files/playerboard.dat")))
         {
-            PrintWriter Print_to_file= new PrintWriter(new FileWriter("files/playerboard.dat"));
-           
-        
-            for(int i=0; i< PlayersBoardVector.size(); i++ )
-            {
-                Player TempPlayer = PlayersBoardVector.elementAt(i);
-                Print_to_file.println(TempPlayer.convertToString());
-            }
+            
+            // iterate through all elements of ArrayList PlayerBoardVector
+            PlayersBoardVector.forEach((temp_player)->{
+                Print_to_file.println(temp_player.convertToString());
+                    });
             Print_to_file.close();
             return true;
         }
@@ -117,11 +116,11 @@ public class PlayerBoard
                     break;
                 }
                
-                if(score_values == 0) // amount is player score to compare
+                if(score_values == 0) // amount player score to compare
                 {
                     
                     amount = Player.getPlayerScore();
-                    Player PlayerToCheck = PlayersBoardVector.elementAt(get_position);
+                    Player PlayerToCheck = PlayersBoardVector.get(get_position);
                     if(PlayerToCheck.getPlayerScore() == amount)
                     {
                         score_values = 1; // next phase if equal
@@ -141,7 +140,7 @@ public class PlayerBoard
                 {
                     amount = Player.getNumberOfLifeLinesUsed();
                     // better to have less lifelines used
-                    Player PlayerToCheck = PlayersBoardVector.elementAt(get_position);
+                    Player PlayerToCheck = PlayersBoardVector.get(get_position);
                     if(PlayerToCheck.getNumberOfLifeLinesUsed() == amount)
                     {
                         score_values = 2; // next phase if equal
@@ -162,7 +161,7 @@ public class PlayerBoard
                 {
                    amount = Player.getPlayerScoreReached();
                     // amount reached before withdrawl or missing a question
-                    Player PlayerToCheck = PlayersBoardVector.elementAt(get_position);
+                    Player PlayerToCheck = PlayersBoardVector.get(get_position);
                     if(PlayerToCheck.getPlayerScoreReached() == amount)
                     {
                         position_found = true;
@@ -181,11 +180,11 @@ public class PlayerBoard
                 }
             }
         }
-        PlayersBoardVector.insertElementAt(Player,get_position);
-        if(PlayersBoardVector.size() > 8)
+        if(get_position <= 8)
         {
-            PlayersBoardVector.setSize(8);   // only top 10 are kept
+            PlayersBoardVector.add(get_position, Player);
         }
+       
        
         
     }
@@ -197,34 +196,18 @@ public class PlayerBoard
     //takes in a playerboard from multiplayer and combines with current board
     public void combinePlayerBoards(PlayerBoard Multi_player_board)
     {
-        Vector Multiboard = Multi_player_board.returnPlayerBoard();
-        for(Object value : Multiboard)
-        {
-            Player Player = (Player) value;
-            updatePlayerBoard(Player);
-            if(isLastElement(Player)==true)
-            {
-                break;
-            }
-        }
+        ArrayList<Player> Multiboard = Multi_player_board.returnPlayerBoard();
+        Multiboard.forEach((temp_player)->{                
+            updatePlayerBoard(temp_player);
+          
+        });
     }
     // takes in a Player and finds if it is the last element on the playerboard
     public boolean isLastElement(Player Player)
     {
         
-        if(Player.equals(PlayersBoardVector.lastElement())==true)
-        {
-            return true;
-        }
-        
-        for(Object value: PlayersBoardVector)
-        {
-            if(Player.equals((Player) value)==true)
-            {
-                return false;
-            }
-        }
-        return true;
+        return Player.equals(PlayersBoardVector.get(PlayersBoardVector.size()-1))==true;
+    
         
         
     }

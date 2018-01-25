@@ -19,15 +19,17 @@ public class GameMultiPlayer extends Game
     PlayerBoard Multiplayerboard; // unique player board for multiplayer
      // used to lis names of players in multiplayer
 //needed method from Game,  begins new protocols for a game with one player
+    @Override
     public void startGameProtocol()
     {
-       Multiplayers = new Vector<String>(0);
+       Multiplayers = new ArrayList<>();
        Multiplayerboard = new PlayerBoard();
        WhoWantsTo.enterMultiNamePanel();
         
     }
     
     //needed method from Game, ends game protocol
+    @Override
     public void lastAction()
     {
         
@@ -49,7 +51,8 @@ public class GameMultiPlayer extends Game
     }
     
     // takes in a vector and creates a new Player instance
-    public void setUpPlayers(Vector<String> Playername)
+    @Override
+    public void setUpPlayers(ArrayList<String> Playername)
     {
         Multiplayers = Playername;
         getNextPlayer();
@@ -64,14 +67,16 @@ public class GameMultiPlayer extends Game
     }
     
     // returns the vector string of multiplayers
-    public Vector<String> getMultiPlayerNames()
+    public ArrayList<String> getMultiPlayerNames()
     {
         return Multiplayers;
     }
     
     // takes in a vector string and replaces current vector of multiplayers
-    public void replaceMultiPlayerNames(Vector<String> names)
+    public void replaceMultiPlayerNames(ArrayList<String> names)
     {
         Multiplayers = names;
     }
+
+    
 }    

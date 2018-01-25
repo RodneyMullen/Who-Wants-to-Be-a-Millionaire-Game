@@ -22,7 +22,7 @@ public abstract class Game
     public Questions Question; // Question object for any question asked
     public WhoWantsTo WhoWantsTo;   //main window instance
     public DisplayGUI DisplayGUI; // displaygui for extra messages  while game screen is running
-    public Vector<String> Multiplayers; // used for multiplayers
+    public ArrayList <String> Multiplayers; // used for multiplayers
     /** Empty Constructor */
     public Game() 
     {
@@ -36,7 +36,7 @@ public abstract class Game
     
     
     //Method used to begin game
-    public void startGame(Vector<String> Playernames)
+    public void startGame(ArrayList<String> Playernames)
     {
         setUpPlayers(Playernames);
         
@@ -107,6 +107,6 @@ public abstract class Game
     //abstract method to start the protocols at the start of a particular game 
     public abstract void startGameProtocol();
     
-    public abstract void setUpPlayers(Vector<String> Playernames);
+    public abstract void setUpPlayers(ArrayList<String> Playernames);
     
 }
